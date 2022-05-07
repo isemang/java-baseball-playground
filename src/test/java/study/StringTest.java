@@ -25,5 +25,15 @@ public class StringTest {
         assertThat(arr).contains("1", "2");
     }
 
+    @Test
+    @DisplayName("1을 ,로 split했을 때, 1만을 포함하는 배열이 반환되는지 확인")
+    public void split_1_by_comma() {
+        String str = "1";
+        String regex = ",";
+
+        String[] arr = str.split(regex);
+        assertThat(arr).containsExactly("1");
+    }
+
 
 }
