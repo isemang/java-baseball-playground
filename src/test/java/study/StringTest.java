@@ -35,5 +35,23 @@ public class StringTest {
         assertThat(arr).containsExactly("1");
     }
 
+    @Test
+    @DisplayName("abc값이 주어졌을 때, String charAt을 활용해 특정 위치의 문자를 가져온다")
+    public void charAt_test() {
+        String str = "abc";
+        char c = str.charAt(1);
 
+        Assertions.assertThat(c).isEqualTo('b');
+    }
+
+    @Test
+    @DisplayName("abc값이 주어졌을 때, String charAt의 위치 범위가 벗어난 경우, Exception을 throw한다")
+    public void charAt_test_throws_exception() {
+        String str = "abc";
+
+        assertThatExceptionOfType(StringIndexOutOfBoundsException.class)
+                .isThrownBy(() -> {
+                    str.charAt(4);
+                });
+    }
 }
