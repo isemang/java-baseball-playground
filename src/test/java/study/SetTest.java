@@ -34,5 +34,12 @@ public class SetTest {
         assertThat(size).isEqualTo(num);
     }
 
+    @ParameterizedTest
+    @DisplayName("contains 메소드 활용, set에 특정값이 존재하는지 확인한다")
+    @ValueSource(ints = {1, 2, 3})
+    void contains_test(int input) {
+        assertThat(numbers.contains(input)).isTrue();
+    }
+
 
 }
