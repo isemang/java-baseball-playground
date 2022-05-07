@@ -41,5 +41,13 @@ public class SetTest {
         assertThat(numbers.contains(input)).isTrue();
     }
 
+    @ParameterizedTest
+    @DisplayName("1,2,3은 contains - true, 4,5는 conatins - false")
+    @CsvSource(value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
+    void contains_true_false_test(String input, String expected) {
+        int num = Integer.parseInt(input);
+        boolean contains = numbers.contains(num);
 
+        assertThat(String.valueOf(contains)).isEqualTo(expected);
+    }
 }
