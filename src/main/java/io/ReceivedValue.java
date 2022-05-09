@@ -3,10 +3,10 @@ package io;
 /**
  * 입력받은 숫자를 가지고 있는 클래스
  */
-public class RecievedValue {
+public class ReceivedValue {
     private int value;
 
-    public RecievedValue(int value) {
+    public ReceivedValue(int value) {
         this.value = value;
     }
 }
