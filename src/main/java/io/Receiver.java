@@ -10,17 +10,17 @@ import java.util.Scanner;
  */
 public class Receiver {
     Scanner sc;
-    private ReceivedValue recievedValue;
+    private ReceivedValue receievedValue;
 
     public Receiver() {
         Printer.printInputNum();
 
         sc = new Scanner(System.in);
 
-        recievedValue = new ReceivedValue(Integer.parseInt(sc.nextLine()));
+        receievedValue = new ReceivedValue(Integer.parseInt(sc.nextLine()));
     }
 
-    public ReceivedValue getRecievedValue() {
-        return recievedValue;
+    public ReceivedValue getReceivedValue() {
+        return receievedValue;
     }
 }

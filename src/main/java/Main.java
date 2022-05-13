@@ -12,7 +12,7 @@ public class Main {
 
         while (randomValue != inputValue) {
             Receiver receiver = new Receiver();
-            inputValue = receiver.getRecievedValue().getValue();
+            inputValue = receiver.getReceivedValue().getValue();
 
             Judge.judgeStrikeAndBall(inputValue, randomValue);
 
