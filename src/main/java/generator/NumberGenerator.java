@@ -1,6 +1,7 @@
-package proceedGame;
+package generator;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 
@@ -12,19 +13,26 @@ public class NumberGenerator {
     private GeneratedValue generatedValue;
 
     public NumberGenerator() {
-        generatedValue = makeNewNumber();
+        makeNewNumber();
     }
 
-    private GeneratedValue makeNewNumber() {
+    private void makeNewNumber() {
         Set<Integer> numSet = new HashSet<>();
         Random random = new Random();
         int randomNum = 0;
 
         while (numSet.size() < DIGIT) {
-            numSet.add(random.nextInt(10));
+            numSet.add(random.nextInt(9) + 1);
         }
 
-        return new GeneratedValue(randomNum);
+        Iterator<Integer> setIter = numSet.iterator();
+        int idx = 1;
+        while(setIter.hasNext()) {
+            randomNum += setIter.next()*idx;
+            idx *= 10;
+        }
+
+        generatedValue = new GeneratedValue(randomNum);
     }
 
     public GeneratedValue getGeneratedValue() {
