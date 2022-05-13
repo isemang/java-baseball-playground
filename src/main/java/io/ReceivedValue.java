@@ -9,4 +9,8 @@ public class ReceivedValue {
     public ReceivedValue(int value) {
         this.value = value;
     }
+
+    public int getValue() {
+        return value;
+    }
 }
