@@ -1,8 +1,7 @@
 package io;
 
 import judge.StrikeBallValue;
-import judge.Judge;
-import proceedGame.NumberGenerator;
+import generator.NumberGenerator;
 
 /**
  * 숫자 입력해달라는 말 출력
@@ -10,24 +9,26 @@ import proceedGame.NumberGenerator;
  * 게임 종료 시 게임 종료 문구 출력
  */
 public class Printer {
-    private static final String INPUT_NUM = "숫자를 입력해 주세요: ";
-    private static final String STRIKE_STRING = "스트라이크 ";
-    private static final String BALL_STRING = "볼 ";
-    private static final String GAME_END = "개의 숫자를 모두 맞히셨습니다! 게임 종료\n 게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
-
+    private static final PrintValue printValue = new PrintValue();
     private Printer(){
     }
 
     public static void printInputNum() {
-        System.out.print(INPUT_NUM);
+        System.out.print(printValue.INPUT_NUM);
     }
 
-    public static void printJudgeResult() {
-        StrikeBallValue judgeResult = Judge.getJudgeResult();
-        System.out.println(judgeResult.getBall()+BALL_STRING+judgeResult.getStrike()+STRIKE_STRING);
+    public static void printJudgeResult(StrikeBallValue judgeResult) {
+        int bNum = judgeResult.getBall();
+        int sNum = judgeResult.getStrike();
+
+        if (bNum != 0)  System.out.print(bNum+printValue.BALL_STRING);
+        if (sNum != 0)  System.out.print(sNum+printValue.STRIKE_STRING);
+        if (bNum == 0 && sNum == 0) System.out.print(printValue.NOTHING);
+
+        System.out.println();
     }
 
     public static void printGameEnd() {
-        System.out.println(Integer.toString(NumberGenerator.DIGIT)+GAME_END);
+        System.out.println(Integer.toString(NumberGenerator.DIGIT)+printValue.GAME_END);
     }
 }
