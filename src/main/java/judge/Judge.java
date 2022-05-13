@@ -1,7 +1,5 @@
 package judge;
 
-import proceedGame.NumberGenerator;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,12 +12,12 @@ public class Judge {
     private Judge() {
     }
 
-    private void judgeStrikeAndBall(int inputNum, int outputNum) {
+    public static void judgeStrikeAndBall(int inputNum, int generatedNum) {
         int strikeNum = 0;
         int ballNum = 0;
 
         String[] num1Arr = Integer.toString(inputNum).split("");
-        String[] num2Arr = Integer.toString(outputNum).split("");
+        String[] num2Arr = Integer.toString(generatedNum).split("");
 
         Set<String> num2Set = new HashSet<>();
 
@@ -37,14 +35,14 @@ public class Judge {
     }
 
     //return 1 = strike, 0 = no strike
-    private int strikeCnt(String num1, String num2) {
+    private static int strikeCnt(String num1, String num2) {
         if(num1.equals(num2)) return 1;
 
         return 0;
     }
 
     //return 1 = ball, 0 = no ball
-    private int ballCnt(String num1, Set<String> num2Set) {
+    private static int ballCnt(String num1, Set<String> num2Set) {
         if(num2Set.contains(num1)) return 1;
 
         return 0;
