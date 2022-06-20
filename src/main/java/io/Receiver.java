@@ -23,4 +23,8 @@ public class Receiver {
     public ReceivedValue getRecievedValue() {
         return recievedValue;
     }
+
+    public void endReceiver() {
+        sc.close();
+    }
 }
