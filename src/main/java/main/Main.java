@@ -1,3 +1,5 @@
+package main;
+
 import io.Printer;
 import io.Receiver;
 import judge.Judge;
