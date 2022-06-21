@@ -9,26 +9,25 @@ import generator.NumberGenerator;
  * 게임 종료 시 게임 종료 문구 출력
  */
 public class Printer {
-    private static final PrintValue printValue = new PrintValue();
     private Printer(){
     }
 
     public static void printInputNum() {
-        System.out.print(printValue.INPUT_NUM);
+        System.out.print(PrintValue.INPUT_NUM.getValue());
     }
 
     public static void printJudgeResult(StrikeBallValue judgeResult) {
         int bNum = judgeResult.getBall();
         int sNum = judgeResult.getStrike();
 
-        if (bNum != 0)  System.out.print(bNum+printValue.BALL_STRING);
-        if (sNum != 0)  System.out.print(sNum+printValue.STRIKE_STRING);
-        if (bNum == 0 && sNum == 0) System.out.print(printValue.NOTHING);
+        if (bNum != 0)  System.out.print(bNum+PrintValue.BALL_STRING.getValue());
+        if (sNum != 0)  System.out.print(sNum+PrintValue.STRIKE_STRING.getValue());
+        if (bNum == 0 && sNum == 0) System.out.print(PrintValue.NOTHING.getValue());
 
         System.out.println();
     }
 
     public static void printGameEnd() {
-        System.out.println(Integer.toString(NumberGenerator.DIGIT)+printValue.GAME_END);
+        System.out.println(NumberGenerator.DIGIT+PrintValue.GAME_END.getValue());
     }
 }
