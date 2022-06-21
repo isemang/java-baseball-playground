@@ -13,8 +13,6 @@ public class Receiver {
     private final ReceivedValue receivedValue;
 
     public Receiver() {
-        Printer.printInputNum();
-
         sc = new Scanner(System.in);
 
         receivedValue = new ReceivedValue(Integer.parseInt(sc.nextLine()));
